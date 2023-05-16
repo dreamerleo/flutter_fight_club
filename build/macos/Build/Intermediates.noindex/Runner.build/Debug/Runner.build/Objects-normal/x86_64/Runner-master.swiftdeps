@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "3d75a2bbfb50f8a4189c36ec0e702173a40a8a683ff7726d8ac07e1f2670d1a9"
+build_start_time: [1683550129, 478392124]
+build_end_time: [1683550322, 572567939]
+inputs:
+  "/Users/guruslanru/projects/flutter_fight_club/macos/Flutter/GeneratedPluginRegistrant.swift": [1683550047, 685143232]
+  "/Users/guruslanru/projects/flutter_fight_club/macos/Runner/AppDelegate.swift": [1681949566, 0]
+  "/Users/guruslanru/projects/flutter_fight_club/macos/Runner/MainFlutterWindow.swift": [1681949566, 0]

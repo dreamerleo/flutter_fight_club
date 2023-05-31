@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/main.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,13 +16,12 @@ import '../shared/helpers.dart';
 
 void runTestLesson1Task4() {
   testWidgets('module4', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     final GestureDetector goButton = tester.widget(find.widgetWithText(GestureDetector, "GO"));
     expect(goButton, isNotNull);
 
-    final gestureDetectorFinder =
-        (text) => findTypeByTextOnlyInParentType(GestureDetector, text, Row);
+    gestureDetectorFinder(text) => findTypeByTextOnlyInParentType(GestureDetector, text, Row);
 
     final List<GestureDetector> widgetsWithBodyParts =
         tester.widgetList<GestureDetector>(gestureDetectorFinder("HEAD")).toList();
@@ -34,7 +32,7 @@ void runTestLesson1Task4() {
     const Color selectedGoButtonColor = Colors.black87;
     const Color selectedGoButtonColor2 = Color(0xDE000000);
 
-    final coloredBoxFinder = (text) => findTypeByTextOnlyInParentType(ColoredBox, text, Row);
+    coloredBoxFinder(text) => findTypeByTextOnlyInParentType(ColoredBox, text, Row);
 
     expect(
       tester.widget<ColoredBox>(coloredBoxFinder("GO")).color,

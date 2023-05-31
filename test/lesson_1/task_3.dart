@@ -18,7 +18,7 @@ import '../shared/helpers.dart';
 
 void runTestLesson1Task3() {
   testWidgets('module3', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
     final GestureDetector goButton = tester.widget(find.widgetWithText(GestureDetector, "GO"));
     expect(goButton, isNotNull);
     final List<GestureDetector> widgetsWithBodyParts =
@@ -27,8 +27,7 @@ void runTestLesson1Task3() {
 
     const Color selectedButtonColor = Color.fromRGBO(28, 121, 206, 1);
 
-    final coloredBoxInGestureDetectorFinder =
-        (text) => findTypeByTextOnlyInParentType(ColoredBox, text, GestureDetector);
+    coloredBoxInGestureDetectorFinder(text) => findTypeByTextOnlyInParentType(ColoredBox, text, GestureDetector);
 
     final Color unselectedButtonColor =
         tester.widget<ColoredBox>(coloredBoxInGestureDetectorFinder("HEAD").first).color;

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/main.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -22,7 +21,7 @@ void runTestLesson1Task2() {
     const Color correctBackgroundColor2 = Color(0x60000000);
     await tester.pumpWidget(const MyApp());
 
-    final coloredBoxInButtonFinder = (text) =>
+    coloredBoxInButtonFinder(text) =>
         findTypeByTextOnlyInParentType(ColoredBox, text, BodyPartButtom);
 
     final List<ColoredBox> widgetsWithButtons = [

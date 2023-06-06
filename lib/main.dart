@@ -28,8 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  BodyPart? defendingBodyPart;
-  BodyPart? attackingBodyPart;
+  BodyPart? _defendingBodyPart;
+  BodyPart? _attackingBodyPart;
 
   @override
   Widget build(BuildContext context) {
@@ -51,19 +51,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(height: 13),
                     BodyPartButtom(
                       bodyPart: BodyPart.head,
-                      selected: defendingBodyPart == BodyPart.head,
+                      selected: _defendingBodyPart == BodyPart.head,
                       bodyPartSetter: _selectDefendingBodyPart,
                     ),
                     const SizedBox(height: 14),
                     BodyPartButtom(
                       bodyPart: BodyPart.torso,
-                      selected: defendingBodyPart == BodyPart.torso,
+                      selected: _defendingBodyPart == BodyPart.torso,
                       bodyPartSetter: _selectDefendingBodyPart,
                     ),
                     const SizedBox(height: 14),
                     BodyPartButtom(
                       bodyPart: BodyPart.legs,
-                      selected: defendingBodyPart == BodyPart.legs,
+                      selected: _defendingBodyPart == BodyPart.legs,
                       bodyPartSetter: _selectDefendingBodyPart,
                     ),
                   ],
@@ -77,19 +77,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(height: 13),
                     BodyPartButtom(
                       bodyPart: BodyPart.head,
-                      selected: attackingBodyPart == BodyPart.head,
+                      selected: _attackingBodyPart == BodyPart.head,
                       bodyPartSetter: _selectAttackingBodyPart,
                     ),
                     const SizedBox(height: 14),
                     BodyPartButtom(
                       bodyPart: BodyPart.torso,
-                      selected: attackingBodyPart == BodyPart.torso,
+                      selected: _attackingBodyPart == BodyPart.torso,
                       bodyPartSetter: _selectAttackingBodyPart,
                     ),
                     const SizedBox(height: 14),
                     BodyPartButtom(
                       bodyPart: BodyPart.legs,
-                      selected: attackingBodyPart == BodyPart.legs,
+                      selected: _attackingBodyPart == BodyPart.legs,
                       bodyPartSetter: _selectAttackingBodyPart,
                     ),
                   ],
@@ -105,21 +105,21 @@ class _MyHomePageState extends State<MyHomePage> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    if (attackingBodyPart != null &&
-                        defendingBodyPart != null) {
+                    if (_attackingBodyPart != null &&
+                        _defendingBodyPart != null) {
                       setState(() {
-                        attackingBodyPart = null;
-                        defendingBodyPart = null;
+                        _attackingBodyPart = null;
+                        _defendingBodyPart = null;
                       });
                     }
                   },
                   child: SizedBox(
                     height: 40,
                     child: ColoredBox(
-                      color:
-                          attackingBodyPart == null || defendingBodyPart == null
-                              ? Colors.black38
-                              : const Color.fromRGBO(0, 0, 0, 0.87),
+                      color: _attackingBodyPart == null ||
+                              _defendingBodyPart == null
+                          ? Colors.black38
+                          : const Color.fromRGBO(0, 0, 0, 0.87),
                       child: Center(
                         child: Text(
                           "Go".toUpperCase(),
@@ -145,13 +145,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _selectDefendingBodyPart(final BodyPart value) {
     setState(() {
-      defendingBodyPart = value;
+      _defendingBodyPart = value;
     });
   }
 
   void _selectAttackingBodyPart(final BodyPart value) {
     setState(() {
-      attackingBodyPart = value;
+      _attackingBodyPart = value;
     });
   }
 }
@@ -233,13 +233,13 @@ class LivesWidget extends StatelessWidget {
   }
 }
 
-class BodyPart {
-  final String name;
+enum BodyPart {
+  head("Head"),
+  torso("Torso"),
+  legs("Legs");
 
-  const BodyPart._(this.name);
-  static const head = BodyPart._("Head");
-  static const torso = BodyPart._("Torso");
-  static const legs = BodyPart._("Legs");
+  const BodyPart(this.name);
+  final String name;
 
   @override
   String toString() {

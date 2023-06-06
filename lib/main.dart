@@ -163,13 +163,13 @@ class Fightersinfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Expanded(
           child: Center(
             child: Column(
-              children: [
+              children: const [
                 Text("You"),
                 LivesWidget(
                   overallLiveCount: 5,
@@ -179,11 +179,11 @@ class Fightersinfo extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 12),
+        const SizedBox(width: 12),
         Expanded(
           child: Center(
             child: Column(
-              children: [
+              children: const [
                 Text("You"),
                 LivesWidget(
                   overallLiveCount: 5,
@@ -193,7 +193,7 @@ class Fightersinfo extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
       ],
     );
   }
